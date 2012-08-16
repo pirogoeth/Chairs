@@ -2,6 +2,7 @@ package net.spoothie.chairs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -41,11 +42,13 @@ public class EventListener implements Listener {
 
                 // Check if block beneath chair is solid.
 				if (block.getRelative(BlockFace.DOWN).getTypeId() == 0 || net.minecraft.server.Block.byId[block.getRelative(BlockFace.DOWN).getTypeId()].material.isSolid() != true) {
+				    Logger.getLogger("Minecraft").info("Chairs -- block is not solid");
                     return;
                 }
 
 				// Permissions Check
 				if (!player.hasPermission("chairs.sit")) {
+				    Logger.getLogger("Minecraft").info("Chairs -- " + player.getName() + " does not have permission.");
                     return;
                 }
 
@@ -73,7 +76,7 @@ public class EventListener implements Listener {
                         sign2 = checkSign(block, BlockFace.SOUTH);
                     }
 
-                    if(!(sign1 == true && sign2 == true)) {
+                    if (!(sign1 == true && sign2 == true)) {
                         return;
 				    }
                 }
@@ -133,6 +136,7 @@ public class EventListener implements Listener {
 
                     // Cancel BlockPlaceEvent Result, if player is rightclicking with a block in his hand.
                     event.setUseInteractedBlock(Result.DENY);
+				    Logger.getLogger("Minecraft").info("Chairs -- sitting process completed");
                 }
             }
         }
