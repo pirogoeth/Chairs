@@ -36,7 +36,7 @@ public class EventListener implements Listener {
 
             if (plugin.allowedBlocks.contains(block.getType())) {
                 Player player = event.getPlayer();
-                Stairs stairs = ((Stairs) block).getState().getData();
+                Stairs stairs = (Stairs) block.getState().getData();
                 int chairwidth = 1;
 
                 // Check if block beneath chair is solid.
