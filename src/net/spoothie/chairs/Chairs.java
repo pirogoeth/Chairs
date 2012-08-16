@@ -3,6 +3,7 @@ package net.spoothie.chairs;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import net.spoothie.chairs.EventListener;
 
@@ -12,7 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Chairs extends JavaPlugin{
+public class Chairs extends JavaPlugin {
 
     public List<Material> allowedBlocks = new ArrayList<Material>();
     public Material item;
@@ -33,6 +34,7 @@ public class Chairs extends JavaPlugin{
         loadConfig();
         EventListener eventListener = new EventListener(this);
         getServer().getPluginManager().registerEvents(eventListener, this);
+        Logger.getLogger("Minecraft").info("Loaded Chairs.");
     }
 
     @Override
