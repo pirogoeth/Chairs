@@ -40,6 +40,8 @@ public class EventListener implements Listener {
                 Stairs stairs = (Stairs) block.getState().getData();
                 int chairwidth = 1;
 
+          	    Logger.getLogger("Minecraft").info("Chairs -- attempting to seat " + player.getName());
+
                 // Check if block beneath chair is solid.
 				if (block.getRelative(BlockFace.DOWN).getTypeId() == 0 || net.minecraft.server.Block.byId[block.getRelative(BlockFace.DOWN).getTypeId()].material.isSolid() != true) {
 				    Logger.getLogger("Minecraft").info("Chairs -- block is not solid");
