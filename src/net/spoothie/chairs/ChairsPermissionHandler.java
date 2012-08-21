@@ -3,6 +3,7 @@ package net.spoothie.chairs;
 // java imports
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.logging.Logger;
 
 // bukkit imports
 import org.bukkit.entity.Player;
@@ -19,11 +20,12 @@ public class ChairsPermissionHandler {
     private static Chairs plugin;
     private static HandlerType handler = HandlerType.NONE;
     private static Plugin permissions;
+    private static Logger log = Logger.getLogger("Minecraft");
 
     public ChairsPermissionHandler(Chairs instance) {
         plugin = instance;
         // logHandler log = new LogHandler();
-        // log.info("Searching for a suitable permissions plugin.");
+        log.info("Searching for a suitable permissions plugin.");
         Plugin permissions = null;
         // check for a permissions method
         if (packageExists("ru.tehkode.permissions.bukkit.PermissionsEx")) {
@@ -41,17 +43,17 @@ public class ChairsPermissionHandler {
         // notify to what we are using
         switch (handler) {
             case PERMISSIONS:
-                // log.info("Using [" + permissions.getDescription().getFullName() + "] for Permissions.");
+                log.info("Using [" + permissions.getDescription().getFullName() + "] for Permissions.");
                 break;
             case PERMISSIONS_EX:
-                // log.info("Using [PermissionsEx " + permissions.getDescription().getVersion() + "] for Permissions.");
+                log.info("Using [PermissionsEx " + permissions.getDescription().getVersion() + "] for Permissions.");
                 break;
             case SUPERPERMS:
-                // log.info("Using Bukkit SuperPerms for Permissions.");
-                // log.info("SuperPerms provider: [" + permissions.getDescription().getFullName() + "].");
+                log.info("Using Bukkit SuperPerms for Permissions.");
+                log.info("SuperPerms provider: [" + permissions.getDescription().getFullName() + "].");
                 break;
             case OP:
-                // log.info("Using OP system for Permissions.");
+                log.info("Using OP system for Permissions.");
                 break;
         }
     }
