@@ -7,9 +7,10 @@ source ${dmcore}/config/global
 
 name="Chairs"
 basedir="/home/pirogoeth/Chairs"
+srcdir="${basedir}/src"
 incdir="${basedir}/inc" # you shouldn't need to change this
 jvmv="6" # default uses JDK 6, you may not need to change this. check your config/global for details
-javac_includes="inc/bukkit.jar:inc/craftbukkit.jar"
+javac_includes="inc/bukkit.jar:inc/craftbukkit.jar:inc/permissions.jar:inc/pex.jar"
 javac_src="src/net/spoothie/chairs/*.java"
 
 # extra variables used during compile, may not always be used.

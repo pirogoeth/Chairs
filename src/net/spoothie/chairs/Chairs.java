@@ -34,7 +34,7 @@ public class Chairs extends JavaPlugin {
         loadConfig();
         EventListener eventListener = new EventListener(this);
         getServer().getPluginManager().registerEvents(eventListener, this);
-        Logger.getLogger("Minecraft").info("Loaded Chairs.");
+        new ChairsPermissionHandler(this);
     }
 
     @Override

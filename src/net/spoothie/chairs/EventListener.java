@@ -45,7 +45,7 @@ public class EventListener implements Listener {
                 }
 
 				// Permissions Check
-				if (!player.hasPermission("chairs.sit")) {
+				if (!(ChairsPermissionHandler.has(player, "chairs.sit"))) {
                     return;
                 }
 
